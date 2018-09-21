@@ -1,3 +1,10 @@
-<p>
-  post-list-item works!
-</p>
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': postLoveIts > 0,
+                'list-group-item-danger': postLoveIts < 0}">
+  <h2>{{ postTitle }}</h2>
+  <p>{{ postCreated_at | date: 'short'}}</p>
+  <p>{{ postContent }}</p>
+  <p hidden>{{ postLoveIts }}</p>
+  <button class="btn btn-success" (click)="onLove()">Love It</button>
+  <button class="btn btn-danger" (click)="onDontLove()">Don't ove It</button>
+</li>
